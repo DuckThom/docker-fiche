@@ -18,6 +18,10 @@ RUN mkdir /app \
 
 RUN apk del .build-deps
 
+RUN mkdir /app/log \
+    && ln -sf /dev/stdout /app/log/output.log \
+    && ln -sf /dev/stderr /app/log/error.log
+
 COPY . /app/
 WORKDIR /app/
 
